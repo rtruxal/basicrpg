@@ -1,6 +1,5 @@
-from game import prompts
-from game.character import CharDict as cd
-
+from gamez import prompts
+from gamez.play.active_players import CharDict as cd
 
 
 def three_person_game():
@@ -22,7 +21,7 @@ def three_person_game():
             raw_input('Press Enter to continue.'.upper())
             pass
     print "great success!"
-    print "{}, {}, and {} have joined the game".format(player1.name, player2.name, player3.name)
+    print "{}, {}, and {} have joined the gamez".format(player1.name, player2.name, player3.name)
     print ''
     raw_input('Press Enter to continue.'.upper())
     return player1.name, player2.name, player3.name
@@ -31,4 +30,4 @@ def three_person_game():
 def main():
     pass
 if __name__ == '__main__':
-    three_person_game()
+    char1, char2, char3 = three_person_game()

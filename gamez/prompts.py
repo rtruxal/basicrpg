@@ -17,7 +17,7 @@ def __doc__():
     """
 
 def prompt_make_char(charnum=1):
-    from character import CharDict as cd
+    from gamez.play.active_players import CharDict as cd
     from character import create_hero_instance
     print "OK player{}. Let's make a character.".format(charnum)
     name = ''
