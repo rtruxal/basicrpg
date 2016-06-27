@@ -21,15 +21,17 @@ def get_mage_power_dict():
     return mage_powers
 
 
-def fuckin_mage_power(Mage, power):
+def fuckin_mage_power(mage, power):
 ## TAKES A HERO INSTANCE AND A POWER REFERENCE.
 ## DOES A SERIES OF CHECKS 'BOUT MANA AND COMMAND ACCURACY.
 ## CAN DEAL DAMAGE OR DO OTHER SHIT -- DAMAGE IS ALWAYS AN INT, SPECIAL IS A STR (maybe make it a list)
+    from game.character import Mage as m
+    assert isinstance(mage, m)
     damage = 0
     special = ''
     if power == 'petrify':
-        if Mage.mana >= 60:
-            Mage.mana -= 60
+        if mage.mana >= 60:
+            mage.mana -= 60
             special += 'petrify'
             print "Didn't think I was serious when I said I was half spider, did you?"
             print "You're welcome."
@@ -37,24 +39,24 @@ def fuckin_mage_power(Mage, power):
             print 'not enough mana'
             pass
     elif power == 'blast':
-        if Mage.mana >= 50:
-            Mage.mana -= 50
+        if mage.mana >= 50:
+            mage.mana -= 50
             damage = 25
             print "FIREBAL."
         else:
             print 'not enough mana'
             pass
     elif power == 'burst':
-        if Mage.mana >= 25:
-            Mage.mana -= 25
+        if mage.mana >= 25:
+            mage.mana -= 25
             damage = 10
             print "Burst a' magic shit blasts out your hands."
         else:
             print 'not enough mana'
             pass
     elif power == 'heal':
-        if Mage.mana >= 25:
-            Mage.mana -= 25
+        if mage.mana >= 25:
+            mage.mana -= 25
             damage = -25
             print "shhhhh. It's totally fine...I'm a doctor."
         else:
@@ -62,6 +64,7 @@ def fuckin_mage_power(Mage, power):
             pass
     else:
         print 'You mutter words but they are not magic.'
+
 ## IF INT IS RETURNED, DAMAGE OR HEALTH IS DEALT
     if bool(damage) == True:
         print 'Your {} spell did {} damage.'.format(power, damage)
