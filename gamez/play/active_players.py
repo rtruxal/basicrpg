@@ -1,12 +1,12 @@
 from gamez.character import Hero
+from UserDict import UserDict as ud
 
 
 class CharDict(object):
     ## IT IS A CLASS VARIABLE, NOT PASSED TO INSTANCES.
-
     ## CHAR DICT IS THE HEART OF THIS.
     ## CURRENT FORMAT IS {'name' : [Hero type, Hero or NPC]}
-    _char_dict = {}
+    _char_dict = ud()
 
     @classmethod
     def disp(cls):

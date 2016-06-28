@@ -49,22 +49,25 @@ def create_hero_instance(name, class_choice):
 class Character(object):
     def __init__(self, name):
         self._selectable = False
+
+        self.level = 1
         self.health = 100
         self.dex = 5
         self.str = 5
         self.luck = 5
         self.nice = 5
         self.mana = 150
+
         self.power1 = None
         self.power2 = None
         self.power3 = None
         self.power4 = None
         self.power5 = None
         self.power6 = None
+
         self.chartype = None
         self.name = name
-        self._selectable = False
-        self.inventory = []
+        self.inventory = {}
 
 
     def stats(self):
@@ -104,6 +107,20 @@ class Hero(Character):
         super(Hero, self).__init__(name)
         self.health += 100
         self._selectable = True
+
+
+class NPC(Character):
+    def __init__(self, type='Blandy McBlanderson'):
+        super(NPC, self).__init__(type)
+        self.gullibility = 5
+        self.bitchy_ness = 5
+        self.scared_ness = 5
+        self.unaware_ness = 5
+
+
+class Villager(NPC):
+    def __init__(self):
+        super(Villager, self).__init__()
 
 
 class Mage(Hero):
@@ -174,9 +191,9 @@ class Spy(Hero):
 
 class Dunce(Hero):
     def __init__(self, name_input):
+        super(Dunce, self).__init__(name_input)
         self.chartype = 'dunce'
         self.name = name_input
-        super(Dunce, self).__init__(name_input)
         self.mana -= 149 # now = 1
         self.str += 20 # now = 25
         self.dex -= 4 # now = 1

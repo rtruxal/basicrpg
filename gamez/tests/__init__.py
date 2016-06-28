@@ -1,7 +1,4 @@
-
-
-
-__all__ = ['test_mechanics.py']
+__all__ = ['test_mechanics']
 
 
 

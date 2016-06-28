@@ -1,6 +1,4 @@
-
-
-# __all__ = ['__doc__', 'character.py', 'combat.py', 'index.py', 'powers.py', 'prompts.py']
+__all__ = ['__doc__', 'character', 'combat', 'game_funcs', 'powers', 'prompts', 'items']
 
 # class __init__:
 #
