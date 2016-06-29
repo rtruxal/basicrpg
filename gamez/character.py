@@ -113,9 +113,9 @@ class NPC(Character):
     def __init__(self, type='Blandy McBlanderson'):
         super(NPC, self).__init__(type)
         self.gullibility = 5
+        self.unaware_ness = 5
         self.bitchy_ness = 5
         self.scared_ness = 5
-        self.unaware_ness = 5
 
 
 class Villager(NPC):

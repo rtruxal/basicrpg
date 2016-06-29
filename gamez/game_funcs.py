@@ -1,6 +1,4 @@
 from gamez import prompts
-#from gamez.play.active_players import CharDict as cd
-
 
 def three_person_game():
     #create heroes
