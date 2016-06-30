@@ -68,6 +68,7 @@ class Character(object):
         self.chartype = None
         self.name = name
         self.inventory = {}
+        self.current_space = None
 
 
     def stats(self):

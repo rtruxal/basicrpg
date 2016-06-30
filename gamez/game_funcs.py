@@ -1,20 +1,19 @@
 def plot_func(f, x_range,name=None, _axis=None,  *args, **kwargs):
     import matplotlib.pyplot as plt
     y_bucket = []
-    counter = 0
+    #####counter = 0
     # import pdb
     # pdb.set_trace()
     for element in x_range:
         y = f(element,*args, **kwargs )
         y_bucket.append(y)
-        counter += 1
-
+        #####counter += 1
         # if counter == len(x_range[:-10]):
         #     import pdb
         #     pdb.set_trace()
 
     assert len(x_range) == len(y_bucket), "some x values didn't turn into y values or made a buncha extra y values dawg."
-
+    #
     plt.plot(x_range, y_bucket)
     if name is not None:
         plt.ylabel(name)
@@ -24,7 +23,7 @@ def plot_func(f, x_range,name=None, _axis=None,  *args, **kwargs):
         assert type(_axis) is list, 'axis value not list'
         x = len(_axis)
         for num in range(x):
-            assert type(_axis[num]) is int, 'an axis perameter is not int'
+            assert type(_axis[num]) is int, 'an axis parameter is not int'
         plt.axis(_axis)
     plt.show()
 

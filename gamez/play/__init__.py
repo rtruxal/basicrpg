@@ -1,1 +1,1 @@
-__all__ = ['active_players', 'run']
+__all__ = ['active_players', 'active_map', 'run']

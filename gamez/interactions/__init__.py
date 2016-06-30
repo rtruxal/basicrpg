@@ -1,1 +1,1 @@
-__all__ = ['combat, core']
+__all__ = ['combat', 'core', 'movement']

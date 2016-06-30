@@ -1,1 +1,1 @@
-__all__ = ['game_types']
+__all__ = ['game_types', 'map_types']

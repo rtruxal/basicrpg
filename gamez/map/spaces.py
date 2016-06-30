@@ -34,6 +34,7 @@ class GridSpace(object):
 
         self.terrain = 'BlandLand'
         self.drag = 0
+        self.occupied_by = set()
 
     def __repr__(self):
         return 'space {}'.format(self._id)
@@ -77,15 +78,6 @@ class GridSpace(object):
             self._is_perimeter = True
         if self._num_code == 15:
             self._is_perimeter = True
-
-def create_map_grid():
-    from gamez.map.basic import fifteen_by_fifteen as fxf
-    spnames = fxf()
-    space_dict = {}
-    for name in spnames:
-        space_dict[name] = GridSpace(name)
-
-    return space_dict
 
 
 
