@@ -8,12 +8,11 @@ def plot_func(f, x_range,name=None, _axis=None,  *args, **kwargs):
         y = f(element,*args, **kwargs )
         y_bucket.append(y)
         counter += 1
-        # if counter > 9:
-        #     break
-        if counter == len(x_range[:-10]):
 
-            import pdb
-            pdb.set_trace()
+        # if counter == len(x_range[:-10]):
+        #     import pdb
+        #     pdb.set_trace()
+
     assert len(x_range) == len(y_bucket), "some x values didn't turn into y values or made a buncha extra y values dawg."
 
     plt.plot(x_range, y_bucket)
