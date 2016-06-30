@@ -8,16 +8,29 @@
 # nearby()
 
 
-def create_map_grid():
-    from gamez.map.basic import fifteen_by_fifteen as fxf
-    from gamez.map.spaces import GridSpace
-    from UserDict import UserDict as ud
+# def create_map_grid():
+#     from gamez.map.basic import fifteen_by_fifteen as fxf
+#     from gamez.map.spaces import GridSpace
+#     from UserDict import UserDict as ud
+#
+#     spnames = fxf()
+#     space_dict = ud()
+#
+#     for name in spnames:
+#         space_dict[name] = GridSpace(name)
+#
+#     return space_dict
 
-    spnames = fxf()
-    space_dict = ud()
 
-    for name in spnames:
-        space_dict[name] = GridSpace(name)
+# make sure the plotting function takes
+#     - an f(x) = def
+#     -
+#     -
+from gamez.game_funcs import plot_func, sin_wave
+from math import pi
 
-    return space_dict
+rangez = [i/100.0 for i in range(-100, 101)]
+
+plot_func(sin_wave, rangez, name='Sin Wave', Pw=2.0*pi)
+
 

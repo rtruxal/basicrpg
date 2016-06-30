@@ -1,4 +1,4 @@
-from gamez.game_funcs import three_person_game
+from gamez.utils.game_types import three_person_game
 
 
 def start_game():
