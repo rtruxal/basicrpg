@@ -8,7 +8,7 @@ def __doc__():
         |
         |---takes (<character number>), (return)s <Hero instance>
         |
-        |---adds Hero instance to character pool(CharDict) as {'<name>': <instance>}
+        |---adds Hero instance to character pool(HeroDict) as {'<name>': <instance>}
         |
         |---checks for name uniqueness
 
@@ -17,15 +17,15 @@ def __doc__():
     """
 
 def prompt_make_char(charnum=1):
-    from gamez.play.active_players import CharDict as cd
+    from gamez.play.active_players import HeroDict as cd
     from character import create_hero_instance
     print "OK player{}. Let's make a character.".format(charnum)
     name = ''
 
-    ## Name a character. Loop until name is unique in CharDict.
+    ## Name a character. Loop until name is unique in HeroDict.
     while True:
         name = raw_input("what\'s your name? >")
-        if name not in cd._char_dict.keys():
+        if name not in cd._hero_dict.keys():
             break
         else:
             raw_input('That name has already been chosen. Press Enter to try again.')
@@ -51,11 +51,10 @@ def prompt_make_char(charnum=1):
 
     ## Instantiate new character.
     new_char = create_hero_instance(name, _choice_dict[choice])
-    ## Add new char to dict.
-    cd.add_hero_to_dict(name, new_char)
-
+    hd = cd()
+    cd.add_hero_to_dict(new_char)
+    print cd._hero_dict
     return new_char
-
 
 def get_stats(char):
     from character import Hero as h

@@ -68,7 +68,8 @@ class Character(object):
         self.chartype = None
         self.name = name
         self.inventory = {}
-        self.current_space = None
+        self.current_space_id = None
+        self.money = 0
 
 
     def stats(self):
@@ -87,6 +88,11 @@ class Character(object):
         print "Power1: =>", self.power1
         print "Power2: =>", self.power2
         print "Power3: =>", self.power3
+        print ''
+        print 'Standing on location: =>', self.current_space_id
+        print 'Money: =>', self.money
+        print 'Inventory: ==>', self.inventory
+
         if not self.power4 == None:
             print "Power4: =>", self.power4
         if not self.power5 == None:

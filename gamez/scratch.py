@@ -26,8 +26,9 @@
 #     - an f(x) = def
 #     -
 #     -
-from gamez.game_funcs import plot_func, sin_wave
 from math import pi
+
+from gamez.game_funcs import plot_func, sin_wave
 
 rangez = [i/100.0 for i in range(-100, 101)]
 
