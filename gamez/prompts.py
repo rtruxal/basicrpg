@@ -51,9 +51,6 @@ def prompt_make_char(charnum=1):
 
     ## Instantiate new character.
     new_char = create_hero_instance(name, _choice_dict[choice])
-    hd = cd()
-    cd.add_hero_to_dict(new_char)
-    print cd._hero_dict
     return new_char
 
 def get_stats(char):

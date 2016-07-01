@@ -27,22 +27,27 @@ def start_game():
     from gamez.utils import game_types
 
     hd = HeroDict
-    #change below to ...game_types.X_person_game() where x is one, two, or three
+    #Can change the line below to ...game_types.X_person_game() where x is one, two, or three
     hero_list = game_types.two_person_game()
 
     assert type(hero_list) is list, \
         "CHARLIST VARIABLE PASSED FROM GAME_FUNCS.THREE_PERSON_GAME IS NOT A list"
-    #This instantiates a MapDict for the game
-    print hd.add_heroes_to_dict(hero_list)
-    print HeroDict._hero_dict
-    from gamez.play.active_map import active_map
-    x = active_map
-    place_chars_on_map(x)
+    #This instantiates herodb for the game
+    hd.add_heroes_to_dict(hero_list)
 
+    from gamez.play.active_map import instantiate_map, mapdb_output
+    # instantiate_map takes no arguments as of now
+    # eventually I will allow for choosing map types
+    instantiate_map()
+    map_dict = mapdb_output()
+    place_chars_on_map(map_dict)
 
+    #Prove Char persistance, map location, and movement choices
+    from pprint import pprint
     for el in hero_list:
-        print active_map[el.current_space_id]._adj_spaces
-
+        print "{} begins their journey at space {}.".format(el.name, el.current_space_id)
+        print "Movement options are as follows: "
+        pprint(map_dict[el.current_space_id]._adj_spaces)
 
 
 

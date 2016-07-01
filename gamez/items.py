@@ -1,17 +1,35 @@
 class Item(object):
-    def __init__(self):
+    def __init__(self, name='rock'):
+
+        self.item_name = name
+        self.item_descr = "IDK...It's pretty useless. You could try throwing it as a weapon or eating it...\n\n...\n\n...probably wouldn't end well"
+
         self.is_consumable = False
         self.is_weapon = False
-        self.is_armor = False
+        self.is_wearable = False
+        self.has_sockets = False
         self.is_special = False
         self.quantity = 0
 
-class Consumable(Item):
-    def __init__(self):
-        super(Consumable, self).__init__()
-        self.is_consumable = True
 
-        self.cons_type = None
+
+class Weapon(Item):
+    def __init__(self, name='bare hands'):
+        super(Weapon, self).__init__(name)
+        self.is_wearable = True
+        self.weap_type = 'unarmed'
+
+class Wearable(Item):
+    def __init__(self, name='underoos'):
+        super(Wearable, self).__init__(name)
+        self.is_wearable = True
+        self.wear_type = 'skivvys'
+
+class Consumable(Item):
+    def __init__(self, name='air'):
+        super(Consumable, self).__init__(name)
+        self.is_consumable = True
+        self.cons_type = 'nothing'
 
 class Food(Consumable):
     def __init__(self):
@@ -30,11 +48,7 @@ class Ammo(Consumable):
         self.cons_type = 'ammo'
 
 
-class Weapon(Item):
-    def __init__(self):
-        super(Weapon, self).__init__()
-        self.is_weapon = True
-        self.weap_type = 'bare_hands'
+
 
 
 class Grenade(Consumable, Weapon):
