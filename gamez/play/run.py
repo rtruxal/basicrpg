@@ -23,12 +23,12 @@ def place_chars_on_map(map_space_dict, **params):
 
 
 def start_game():
-
-    from gamez.utils import game_types
-
+    from gamez.utils.game_types import two_person_game
+    from active_players import herodb_purge
+    herodb_purge()
     hd = HeroDict
     #Can change the line below to ...game_types.X_person_game() where x is one, two, or three
-    hero_list = game_types.two_person_game()
+    hero_list = two_person_game()
 
     assert type(hero_list) is list, \
         "CHARLIST VARIABLE PASSED FROM GAME_FUNCS.THREE_PERSON_GAME IS NOT A list"
@@ -49,7 +49,7 @@ def start_game():
         print "Movement options are as follows: "
         pprint(map_dict[el.current_space_id]._adj_spaces)
 
-
+    return hero_list
 
 
 def main():

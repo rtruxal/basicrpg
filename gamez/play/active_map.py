@@ -20,7 +20,7 @@ def mapdb_output():
     with closing(shelve.open('map.db', flag='r')) as db:
         map_dict = {}
         for key in db.keys():
-            print 'key: {}, value: {}'.format(key, db[key])
+            # print 'key: {}, value: {}'.format(key, db[key])
             map_dict[key] = db[key]
         return map_dict
 

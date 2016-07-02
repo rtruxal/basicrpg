@@ -17,15 +17,16 @@ def __doc__():
     """
 
 def prompt_make_char(charnum=1):
-    from gamez.play.active_players import HeroDict as cd
+    from gamez.play.active_players import herodb_output
     from character import create_hero_instance
     print "OK player{}. Let's make a character.".format(charnum)
     name = ''
 
     ## Name a character. Loop until name is unique in HeroDict.
+    cd = herodb_output()
     while True:
         name = raw_input("what\'s your name? >")
-        if name not in cd._hero_dict.keys():
+        if name not in cd.keys():
             break
         else:
             raw_input('That name has already been chosen. Press Enter to try again.')
