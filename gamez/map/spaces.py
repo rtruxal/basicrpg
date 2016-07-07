@@ -1,11 +1,11 @@
-## A1  A2  A3  ..  ..  A15
-## B1  B2  B3  ..  ..  B15          N
-## C1  C2  C3  ..  ..  C15          |
+## A1  B1  C1  ..  ..  O1
+## A2  B2  C2  ..  ..  O2           N
+## A3  B3  C3  ..  ..  O3           |
 ##                                  |
 ## .                    .    W<-----O----->E
 ## .                    .           |
 ##                                  |
-## O1  O2  O3  ..  ..  O15          S
+## A15 B15 C15 ..  ..  O15          S
 
 
 class GridSpace(object):
@@ -18,21 +18,33 @@ class GridSpace(object):
             pass
         else:
             raise ValueError('space_id not valid')
+
+        # Take in str spaceid and split to int codes
         self._id = space_id
         self._alpha_code, self._num_code = self._space_codes()
 
+        # Currently gives abs values
         self._adj_spaces = {
-            'n' : None,
-            'e' : None,
-            's' : None,
-            'w' : None
+            'N' : None,
+            'E' : None,
+            'S' : None,
+            'W' : None
         }
-        self._nearby_grid()
+        self._nearby_abs()
 
+        # Boolean test referring to entire map-space
         self._is_perimeter = False
         self.is_perimeter()
 
-        self.terrain = 'BlandLand'
+        # Boolean test referring to sub-sections of map-space
+        self._is_section_perimeter = False
+        self._adj_door = False
+        self._is_quest_space = False
+        self._is_dungeon = False
+        self._dungeon_name = 'Not a Dungeon'
+
+
+        self.region = 'badlands'
         self.drag = 0
         self.occupied_by = set()
 
@@ -54,33 +66,37 @@ class GridSpace(object):
         else:
             return letter_val, number
 
-    def _nearby_grid(self):
+    def _nearby_abs(self):
         if self._alpha_code >= 66:
-            north = self._alpha_code - 1
-            self._adj_spaces['n'] = chr(north) + str(self._num_code)
+            west = self._alpha_code - 1
+            self._adj_spaces['W'] = chr(west) + str(self._num_code)
         if self._alpha_code <= 78:
-            south = self._alpha_code + 1
-            self._adj_spaces['s'] = chr(south) + str(self._num_code)
+            east = self._alpha_code + 1
+            self._adj_spaces['E'] = chr(east) + str(self._num_code)
 
         if self._num_code >= 2:
-            west = self._num_code - 1
-            self._adj_spaces['w'] = chr(self._alpha_code) + str(west)
+            north = self._num_code - 1
+            self._adj_spaces['N'] = chr(self._alpha_code) + str(north)
         if self._num_code <= 14:
-            east = self._num_code + 1
-            self._adj_spaces['e'] = chr(self._alpha_code) + str(east)
+            south = self._num_code + 1
+            self._adj_spaces['S'] = chr(self._alpha_code) + str(south)
+
+
+
 
     def is_perimeter(self):
-        if self._alpha_code == 65:
+        if self._alpha_code == 65 or 79:
             self._is_perimeter = True
-        if self._alpha_code == 79:
-            self._is_perimeter = True
-        if self._num_code == 1:
-            self._is_perimeter = True
-        if self._num_code == 15:
+        if self._num_code == 1 or 15:
             self._is_perimeter = True
 
 
 
+def create_map_grid(type='default'):
+    from gamez.map.gen_maps import fifteen_by_fifteen as fxf
+    spnames = fxf()
+    space_dict = {}
+    for name in spnames:
+        space_dict[name] = GridSpace(name)
 
-
-
+    return space_dict

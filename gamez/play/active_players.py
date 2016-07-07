@@ -53,7 +53,6 @@ def herodb_output():
     with closing(shelve.open('heroes.db', flag='r')) as herodb:
         hero_dict = {}
         for key in herodb.keys():
-            print 'key: {}, value: {}'.format(key, herodb[key])
             hero_dict[key] = herodb[key]
         return hero_dict
 

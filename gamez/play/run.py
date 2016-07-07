@@ -11,7 +11,7 @@ def place_chars_on_map(map_space_dict, **params):
     #make an indexed list of perimeter boxes
     poss_starting_points = []
     for instan in map_space_dict.values():
-        if instan._is_perimeter == True:
+        if instan._alpha_code == 79 or instan._num_code == 15:
             poss_starting_points.append(instan)
 
     # Start char on random perimeter space
@@ -40,6 +40,9 @@ def start_game():
     # eventually I will allow for choosing map types
     instantiate_map()
     map_dict = mapdb_output()
+    from gamez.map.gen_maps import fxf_map1
+    for spaces in map_dict.values():
+        fxf_map1(spaces)
     place_chars_on_map(map_dict)
 
     #Prove Char persistance, map location, and movement choices

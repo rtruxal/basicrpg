@@ -1,7 +1,7 @@
 class Item(object):
     def __init__(self, name=None, descr=None, value=0):
         assert type(name) == (str or None)
-        assert type(description) == (str or None)
+        assert type(descr) == (str or None)
         assert type(value) == int
 
         if name == None:

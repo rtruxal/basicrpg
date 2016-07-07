@@ -25,7 +25,7 @@ def fuckin_mage_power(mage, power):
 ## TAKES A HERO INSTANCE AND A POWER REFERENCE.
 ## DOES A SERIES OF CHECKS 'BOUT MANA AND COMMAND ACCURACY.
 ## CAN DEAL DAMAGE OR DO OTHER SHIT -- DAMAGE IS ALWAYS AN INT, SPECIAL IS A STR (maybe make it a list)
-    from gamez.character import Mage as m
+    from gamez.character import SpaceWizard as m
     assert isinstance(mage, m)
     damage = 0
     special = ''

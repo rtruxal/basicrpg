@@ -35,13 +35,14 @@ def prompt_make_char(charnum=1):
     print "ok {}, now it's time to pick a class.".format(name)
     print '\n'
     print 'please enter the number corresponding to your hero:'
-    print '1: Blacksmith'
-    print '2: Mage'
-    print '3: Spy'
+    print '1: Space-Barbarian'
+    print '2: Space-Wizard'
+    print '3: Sentinel'
+    print '4: Space-Trooper'
 
     ## Loop to choose a class that exists in _choice_dict.
     ## Change numeric strings to class-names for ease of entry.
-    _choice_dict = {'1' : 'blacksmith', '2' : 'mage', '3' : 'spy', '': 'dunce'}
+    _choice_dict = {'1' : 'blacksmith', '2' : 'mage', '3' : 'spy', '4' : 'soldier', '': 'dunce'}
     choice = ''
     while True:
         choice = raw_input('? => ')

@@ -8,11 +8,11 @@ def __doc__():
     |
     |---Hero
     |   |
-    |   |---Mage
+    |   |---SpaceWizard
     |   |
-    |   |---Blacksmith
+    |   |---SpaceBarbarian
     |   |
-    |   |---Spy
+    |   |---Sentinel
     |   |
     |   |---Dunce
     |
@@ -34,11 +34,13 @@ def __doc__():
 ## TRANSLATE INDEX QUERIES INTO INSTANTIATIONS
 def create_hero_instance(name, class_choice):
     if class_choice == 'mage':
-        return Mage(name)
+        return SpaceWizard(name)
     elif class_choice == 'blacksmith':
-        return Blacksmith(name)
+        return SpaceBarbarian(name)
     elif class_choice == 'spy':
-        return Spy(name)
+        return Sentinel(name)
+    elif class_choice == 'soldier':
+        return SpaceTrooper(name)
     else:
         print 'Somehow you managed to fuck things up.'
         return Dunce(name)
@@ -53,6 +55,7 @@ class Character(object):
         self.level = 1
         self.health = 100
         self.dex = 5
+        self.stm = 5
         self.str = 5
         self.luck = 5
         self.nice = 5
@@ -81,6 +84,7 @@ class Character(object):
         print "Character Type: =>", self.chartype
         print "Health: =>", self.health
         print "Dexterity: =>", self.dex
+        print "Stamina: =>", self.stm
         print "Strength: =>", self.str
         print "Charisma: =>", self.nice
         print "Luck: =>", self.luck
@@ -130,9 +134,9 @@ class Villager(NPC):
         super(Villager, self).__init__()
 
 
-class Mage(Hero):
+class SpaceWizard(Hero):
     def __init__(self, name_input):
-        super(Mage, self).__init__(name_input)
+        super(SpaceWizard, self).__init__(name_input)
         self.chartype = 'mage'
         self.mana += 150 # now = 300
         self.nice -=1 # now = 4
@@ -150,20 +154,20 @@ class Mage(Hero):
 
 
     def __repr__(self):
-        return "I\'m a fuckin mage dawg. The name's {}.".format(self.name)
+        return "I\'m a fuckin SPACEWIZARD dawg. The name's {}.".format(self.name)
 
 
         pass
 
 
-class Blacksmith(Hero):
+class SpaceBarbarian(Hero):
     def __init__(self, name_input):
-        super(Blacksmith, self).__init__(name_input)
+        super(SpaceBarbarian, self).__init__(name_input)
         self.chartype = 'blacksmith'
         self.health += 50 # now = 150
         self.mana -= 75 # now = 75
         self.str += 4 # now = 9
-        self.dex +=2 # now = 7
+        self.stm +=2 # now = 7
         #self.power1 = 'PLACEHOLDER FOR BSPOWERS'
         #self.power2 = 'PLACEHOLDER FOR BSPOWERS'
         #self.power3 = 'PLACEHOLDER FOR BSPOWERS'
@@ -173,17 +177,18 @@ class Blacksmith(Hero):
         #self.power6 = 'PLACEHOLDER FOR BSPOWERS'
 
     def __repr__(self):
-        return "My name is {}. Can I make you something metal?".format(self.name)
+        return "{} SMASH!".format(self.name)
 
 
-class Spy(Hero):
+class Sentinel(Hero):
     def __init__(self, name_input):
-        super(Spy, self).__init__(name_input)
+        super(Sentinel, self).__init__(name_input)
         self.chartype = 'spy'
         self.mana += 50 # now = 200
-        self.str += 1 # now = 6
+        self.str -= 1 # now = 4
+        self.stm += 3 # now = 8
         self.dex += 5 # now = 10
-        self.luck += 3 # now = 8
+        self.luck += 2 # now = 7
         #self.power1 = 'PLACEHOLDER FOR BSPOWERS'
         #self.power2 = 'PLACEHOLDER FOR BSPOWERS'
         #self.power3 = 'PLACEHOLDER FOR BSPOWERS'
@@ -193,20 +198,35 @@ class Spy(Hero):
         #self.power6 = 'PLACEHOLDER FOR BSPOWERS'
 
     def __repr__(self):
-        return "I have no name. But if I did, it would be {}.".format(self.name)
+        return "No body gonna hear ya die in space boiiiii. If I had a name, it would be {}.".format(self.name)
 
 
 class Dunce(Hero):
     def __init__(self, name_input):
         super(Dunce, self).__init__(name_input)
         self.chartype = 'dunce'
-        self.name = name_input
         self.mana -= 149 # now = 1
         self.str += 20 # now = 25
         self.dex -= 4 # now = 1
         self.luck += 5 # now = 10
         self.health -= 50 # now 50
         self.nice -=3 # now 2
+        #self.power1 = 'PLACEHOLDER FOR DUMBPOWERS'
+        #self.power2 = 'PLACEHOLDER FOR DUMBPOWERS'
+        #self.power3 = 'PLACEHOLDER FOR DUMBPOWERS'
+
+        #self.power4 = 'PLACEHOLDER FOR DUMBPOWERS'
+        #self.power5 = 'PLACEHOLDER FOR DUMBPOWERS'
+        #self.power6 = 'PLACEHOLDER FOR DUMBPOWERS'
+
+class SpaceTrooper(Hero):
+    def __init__(self, name_input):
+        super(SpaceTrooper, self).__init__(name_input)
+        self.chartype = 'soldier'
+        self.mana -= 75 # now = 75
+        self.dex += 3 # now = 8
+        self.luck += 3 # now = 8
+        self.stm += 3 # now 8
         #self.power1 = 'PLACEHOLDER FOR DUMBPOWERS'
         #self.power2 = 'PLACEHOLDER FOR DUMBPOWERS'
         #self.power3 = 'PLACEHOLDER FOR DUMBPOWERS'

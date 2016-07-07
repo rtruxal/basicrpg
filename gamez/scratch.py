@@ -26,12 +26,27 @@
 #     - an f(x) = def
 #     -
 #     -
-from math import pi
-
-from gamez.game_funcs import plot_func, sin_wave
-
-rangez = [i/100.0 for i in range(-100, 101)]
-
-plot_func(sin_wave, rangez, name='Sin Wave', Pw=2.0*pi)
 
 
+# from math import pi
+#
+# from gamez.game_funcs import plot_func, sin_wave
+#
+# rangez = [i/100.0 for i in range(-100, 101)]
+#
+# plot_func(sin_wave, rangez, name='Sin Wave', Pw=2.0*pi)
+
+
+from matplotlib import pyplot as plt
+import numpy as np
+
+x = range(65, 80)
+y = range(1, 16)
+
+fig = plt.figure()
+ax = fig.gca()
+ax.set_xticks(np.arange(64, 80, 1))
+ax.set_yticks(np.arange(0, 16, 1))
+plt.scatter(x, y)
+plt.grid()
+plt.show()
