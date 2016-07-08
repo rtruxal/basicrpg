@@ -24,7 +24,7 @@ def fxf_map1(Space):
     abandoned_outpost = ['A13', 'A14', 'B13', 'B14']
     abandoned_runway = ['E11', 'E12', 'E13', 'E14']
     royal_guard_quarters = ['F2', 'F3', 'F4', 'G2', 'G3', 'G4', 'H2', 'H3', 'H4']
-    rebel_citadel = ['G12', 'G13', 'H12', 'H14', 'I12', 'I13']
+    rebel_citadel = ['G12', 'G13', 'H12', 'H13', 'I12', 'I13']
     space_bear_cave = ['L1', 'L2', 'M1', 'M2']
     forest_o_lazers = ['M4', 'M5', 'N4', 'N5']
     rebel_outpost = ['M8', 'M9', 'M10', 'N10']

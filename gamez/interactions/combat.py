@@ -9,5 +9,5 @@ def combat_c2c(char1, char2):
     print ''
     raw_input("Press ENTER to proceed.")
 
-    from gamez.powers import get_mage_power_dict
+    from gamez.character.powers import get_mage_power_dict
     _mage_powers = get_mage_power_dict()

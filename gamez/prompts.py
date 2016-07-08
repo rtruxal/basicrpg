@@ -18,7 +18,7 @@ def __doc__():
 
 def prompt_make_char(charnum=1):
     from gamez.play.active_players import herodb_output
-    from character import create_hero_instance
+    from character.character import create_hero_instance
     print "OK player{}. Let's make a character.".format(charnum)
     name = ''
 
@@ -56,6 +56,6 @@ def prompt_make_char(charnum=1):
     return new_char
 
 def get_stats(char):
-    from character import Hero as h
+    from character.character import Hero as h
     assert isinstance(char, h), 'Cannot get stats for non-hero'
     return h.stats(char)

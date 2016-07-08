@@ -1,4 +1,4 @@
-from gamez.character import Hero
+from gamez.character.character import Hero
 import shelve
 from contextlib import closing
 

@@ -1,6 +1,6 @@
 def _into_space(character, space):
 
-    from gamez.character import Character
+    from gamez.character.character import Character
     from gamez.map.spaces import GridSpace
     assert isinstance(character, Character), '1st argument "character" not Character instance'
     assert isinstance(space, GridSpace), '2nd argument "character" not GridSpace instance'
@@ -10,7 +10,7 @@ def _into_space(character, space):
 
 def _outof_space(character, space):
 
-    from gamez.character import Character
+    from gamez.character.character import Character
     from gamez.map.spaces import GridSpace
     assert character.name in space.occupied_by, 'shit'
     assert isinstance(character, Character), '1st argument "character" not Character instance'
