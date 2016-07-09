@@ -222,7 +222,7 @@ class Dunce(Hero):
 class SpaceTrooper(Hero):
     def __init__(self, name_input):
         super(SpaceTrooper, self).__init__(name_input)
-        self.chartype = 'soldier'
+        self.chartype = 'dunce'
         self.mana -= 75 # now = 75
         self.dex += 3 # now = 8
         self.luck += 3 # now = 8
