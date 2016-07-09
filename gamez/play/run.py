@@ -24,8 +24,10 @@ def place_chars_on_map(map_space_dict, **params):
 
 def start_game():
     from gamez.utils.game_types import two_person_game
-    from active_players import herodb_purge
-    herodb_purge()
+    from gamez.utils.save import herodb_purge
+    from gamez.play.active_map import instantiate_map, mapdb_output
+
+
     hd = HeroDict
     #Can change the line below to ...game_types.X_person_game() where x is one, two, or three
     hero_list = two_person_game()
@@ -35,7 +37,6 @@ def start_game():
     #This instantiates herodb for the game
     hd.add_heroes_to_dict(hero_list)
 
-    from gamez.play.active_map import instantiate_map, mapdb_output
     # instantiate_map takes no arguments as of now
     # eventually I will allow for choosing map types
     instantiate_map()

@@ -17,7 +17,7 @@ def __doc__():
     """
 
 def prompt_make_char(charnum=1):
-    from gamez.play.active_players import herodb_output
+    from gamez.utils.save import herodb_output, herodb_input, herodb_del_heroes
     from character.character import create_hero_instance
     print "OK player{}. Let's make a character.".format(charnum)
     name = ''
@@ -29,9 +29,21 @@ def prompt_make_char(charnum=1):
         if name not in cd.keys():
             break
         else:
-            raw_input('That name has already been chosen. Press Enter to try again.')
+            # option to overwrite or rename
+            while True:
+                print('That name has already been chosen.\n')
+                y_or_n = raw_input('Would you like to overwrite the existing character? (y/n)')
+                if y_or_n.lower() == 'y':
+                    herodb_del_heroes(name)
+                    break
+                elif y_or_n.lower() == 'n':
+                    break
+                else:
+                    print "PLEASE ENTER A Y OR AN N PLEASE."
+                    pass
 
-    ## Prompt MUST MATCH _choice_dict below.
+
+## Prompt MUST MATCH _choice_dict below.
     print "ok {}, now it's time to pick a class.".format(name)
     print '\n'
     print 'please enter the number corresponding to your hero:'
