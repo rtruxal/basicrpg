@@ -135,5 +135,5 @@ def fxf_map1(Space):
                 Space._adj_spaces['N'] = 'A WALL'
 
     _nearby_rel(Space)
-    from gamez.play.active_map import _mapdb_input_single as inp
+    from gamez.utils.save import _mapdb_input_single as inp
     inp(Space)

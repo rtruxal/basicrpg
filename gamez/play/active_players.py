@@ -34,7 +34,7 @@ class HeroDict(object):
 
     @classmethod
     def add_heroes_to_dict(cls, *heroes):
-        for hero in heroes:
+        for hero in heroes[0]:
             if hero.name not in cls._hero_dict.keys():
                 assert isinstance(hero, Hero), "dict value not Hero"
                 cls._hero_dict[hero.name] = hero
