@@ -17,5 +17,10 @@ def make_labels_fxf():
     return nd_array
 
 
-
-
+def gen_edges_from_map_dict(map_dict):
+    edges = []
+    for node in map_dict:
+        for neighbor in map_dict[node]._adj_spaces.values():
+            if neighbor != 'A WALL' and neighbor != None:
+                edges.append((node, neighbor))
+    return edges

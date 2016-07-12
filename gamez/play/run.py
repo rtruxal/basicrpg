@@ -53,6 +53,9 @@ def start_game():
         print "Movement options are as follows: "
         pprint(map_dict[el.current_space_id]._adj_spaces)
 
+    from gamez.map.minimap import gen_edges_from_map_dict as gen
+    edge_tuples = gen(map_dict=map_dict)
+    print edge_tuples
     return hero_list
 
 
