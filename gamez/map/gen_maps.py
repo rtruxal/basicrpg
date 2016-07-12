@@ -1,3 +1,6 @@
+from gamez.map.spaces import GridSpace
+
+
 def fifteen_by_fifteen():
 
     letters = [chr(a) for a in range(65, 80)]
@@ -137,3 +140,12 @@ def fxf_map1(Space):
     _nearby_rel(Space)
     from gamez.utils.save import _mapdb_input_single as inp
     inp(Space)
+
+
+def create_map_grid(type='default'):
+    spnames = fifteen_by_fifteen()
+    space_dict = {}
+    for name in spnames:
+        space_dict[name] = GridSpace(name)
+
+    return space_dict

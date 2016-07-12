@@ -1,1 +1,3 @@
 include README.rst
+include dependancies.vsdx
+include Square_Map_Design_15x15.xlsx

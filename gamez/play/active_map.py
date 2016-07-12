@@ -1,4 +1,4 @@
-from gamez.map.spaces import create_map_grid
+from gamez.map.gen_maps import create_map_grid
 from gamez.utils.save import mapdb_input_dict
 
 
